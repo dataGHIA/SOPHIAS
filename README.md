@@ -7,8 +7,6 @@ SOPHIAS integrates **nine synchronized sensor streams**, including high-definiti
 
 The dataset captures presentations conducted in **real classroom settings**, preserving authentic student behaviors, interactions, and physiological responses. SOPHIAS enables the exploration of relationships between multimodal behavioral and physiological signals and presentation performance, supports the study of peer assessment, and provides a **benchmark for developing automated feedback and Multimodal Learning Analytics tools**.
 
-The dataset is **publicly available for research** through GitHub and Science Data Bank.
-
 
 # Motivation
 Oral presentation skills constitute a core academic and professional competence for university students. The ability to communicate ideas clearly, confidently, and persuasively is essential for students’ future careers across disciplines. Despite their importance, many higher-education learners continue to struggle with structuring their messages, maintaining audience engagement, and managing anxiety during public speaking. **Structured instruction, guided practice, and explicit rubric-based feedback** are necessary for developing strong presentation skills.
