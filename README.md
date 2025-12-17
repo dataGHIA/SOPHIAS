@@ -1,4 +1,4 @@
-![Sin titulo](https://github.com/alvarobj/SOPHIAS/blob/main/Images/sophias.png)
+![Sin titulo](https://github.com/dataGHIA/SOPHIAS/blob/main/Images/sophias.png)
 ***
 # About
 Oral presentation skills are a critical component of higher education, yet comprehensive datasets capturing real-world student performance across multiple modalities remain scarce. To address this gap, we present **SOPHIAS** (*Student Oral Presentation monitoring for Holistic Insights & Analytics using Sensors*), a multimodal dataset containing recordings of **50 oral presentations** (10-minute presentation followed by 5-minute Q&A) delivered by **65 undergraduate and master’s students** at the Universidad Autónoma de Madrid.
@@ -28,7 +28,7 @@ In total, the dataset comprises **more than 380 GB of data**, making it one of t
 # Sensors
 The SOPHIAS dataset use a wide range of sensors, as shown in the acquisition setup during the data capture using the AICoFe system [2] and the edBB platform [3]:
 
-![Sin titulo](https://github.com/alvarobj/SOPHIAS/blob/main/Images/acquisition_setup.png)
+![Sin titulo](https://github.com/dataGHIA/SOPHIAS/blob/main/Images/acquisition_setup.png)
 
 - **Cameras:** Two external webcams were used to record the classroom:
   - **Presenter Camera (external):** A Logitech C920 PRO HD webcam was positioned in front of the presenter to capture a frontal RGB view of the entire presentation, operating at 20 Hz with a resolution of 1920 × 1080.
@@ -74,7 +74,7 @@ The dataset consists of recordings from **65 students** enrolled in face-to-face
 # Code
 Some data from the SOPHIAS dataset were preprocessed and included in the dataset along with the raw files:
 
-- Smartwatch data were filtered to eliminate minor fluctuations and smooth the signals using Python scripts. [[Example of code for Heart Rate](https://github.com/alvarobj/SOPHIAS/blob/main/Code/Heart_Rate_filtered_Example.py)] [[Example of code for Accelerometer](https://github.com/alvarobj/SOPHIAS/blob/main/Code/Acc_filtered_Example.py)]
+- Smartwatch data were filtered to eliminate minor fluctuations and smooth the signals using Python scripts. [[Example of code for Heart Rate](https://github.com/dataGHIA/SOPHIAS/blob/main/Code/Heart_Rate_filtered_Example.py)] [[Example of code for Accelerometer](https://github.com/dataGHIA/SOPHIAS/blob/main/Code/Acc_filtered_Example.py)]
  
 
 # Download Data
@@ -94,7 +94,7 @@ Some data from the SOPHIAS dataset were preprocessed and included in the dataset
 
 For more information, please contact: ghia.uam@gmail.com
 
- [Download license agreement](https://github.com/alvarobj/SOPHIAS/blob/main/License/SOPHIAS_License_Agreement.pdf)
+ [Download license agreement](https://github.com/dataGHIA/SOPHIAS/blob/main/License/SOPHIAS_License_Agreement.pdf)
 
  # References
 + [1] Becerra, A., Cobos, R., & Lang, C. (2025). **Enhancing online learning by integrating biosensors and multimodal learning analytics for detecting and predicting student behaviour: a review**. Behaviour & Information Technology, 1–26. https://doi.org/10.1080/0144929X.2025.2562322 [[pdf](https://www.tandfonline.com/doi/epdf/10.1080/0144929X.2025.2562322?needAccess=true)]
