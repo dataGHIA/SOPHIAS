@@ -106,5 +106,5 @@ For more information, please contact: ghia.uam@gmail.com
 
 - Becerra, A., Mohseni, Z., Sanz, J., & Cobos, R. (2024). A generative AI-based personalized guidance tool for enhancing the feedback to MOOC learners. In 2024 IEEE Global Engineering Education Conference (EDUCON) (pp. 1–8). IEEE. https://doi.org/10.1109/EDUCON60312.2024.10578809 [[pdf]](https://doi.org/10.1109/EDUCON60312.2024.10578809)
 
-- Becerra, A., Andres, D., Villegas, P., Daza, R., & Cobos, R. (2025). MOSAIC-F: A framework for enhancing students' oral presentation skills through personalized feedback. LASI-Spain 2025, Vitoria-Gasteiz, Spain. [[pdf]](https://arxiv.org/abs/2506.08634)
+- Becerra, A., Andres, D., Villegas, P., Daza, R., & Cobos, R. (2025). MOSAIC-F: A framework for enhancing students' oral presentation skills through personalized feedback. LASI-Spain 2025, Vitoria-Gasteiz, Spain. [[pdf]](https://ceur-ws.org/Vol-4148/Paper6.pdf)
 
