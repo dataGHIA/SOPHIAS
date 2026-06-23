@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS keyboard navigation schema",
+  "description": "Schema for timestamped keyboard or clicker interaction logs recorded during a presentation session. Each record represents one keyboard-based navigation or interaction event, including the pressed key, a local datetime string, and a numeric timestamp for synchronization with other SOPHIAS modalities.",
+  "type": "object",
+  "properties": {
+    "tecla": {
+      "type": "string",
+      "description": "Key or keyboard/clicker input registered during the presentation, typically associated with slide navigation or presenter interaction."
+    },
+    "datetime": {
+      "type": "string",
+      "description": "Local date and time at which the keyboard event was recorded, stored as a human-readable datetime string."
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "Numeric timestamp associated with the keyboard event. This value is used to align the event with other timestamped SOPHIAS modalities.",
+      "unit": "milliseconds since UNIX epoch"
+    }
+  },
+  "required": [
+    "tecla",
+    "datetime",
+    "timestamp"
+  ]
+}

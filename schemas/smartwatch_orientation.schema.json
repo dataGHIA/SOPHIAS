@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS smartwatch orientation schema",
+  "description": "Schema for smartwatch orientation data collected from Fitbit Sense smartwatches through Watch-DMLT during a presentation session. Each record contains a local datetime string, a UNIX timestamp for synchronization, and the four orientation components describing the device orientation.",
+  "type": "object",
+  "properties": {
+    "Fecha": {
+      "type": "string",
+      "description": "Local date and time at which the orientation sample was recorded, stored as a human-readable datetime string."
+    },
+    "Timestamp": {
+      "type": "integer",
+      "description": "UNIX timestamp associated with the orientation sample, expressed in milliseconds. This field can be used to align the smartwatch signal with other timestamped SOPHIAS modalities.",
+      "unit": "milliseconds since UNIX epoch"
+    },
+    "Orientación: w": {
+      "type": "number",
+      "description": "Scalar component of the smartwatch orientation quaternion."
+    },
+    "x": {
+      "type": "number",
+      "description": "X component of the smartwatch orientation quaternion."
+    },
+    "y": {
+      "type": "number",
+      "description": "Y component of the smartwatch orientation quaternion."
+    },
+    "z": {
+      "type": "number",
+      "description": "Z component of the smartwatch orientation quaternion."
+    }
+  },
+  "required": [
+    "Fecha",
+    "Timestamp",
+    "Orientación: w",
+    "x",
+    "y",
+    "z"
+  ]
+}

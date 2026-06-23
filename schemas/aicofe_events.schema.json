@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS AICoFe events schema",
+  "description": "Timestamped contextual event annotations recorded during a presentation session through the AICoFe-related annotation workflow. Each record represents one annotated event interval, including the event label, the participant identifier when applicable, and the start and end timestamps in both local time and UNIX time.",
+  "type": "object",
+  "properties": {
+    "Key": {
+      "type": "string",
+      "description": "Label of the annotated event or activity observed during the presentation, such as reading behavior, eye contact, nervous movement, question, answer, slide change, or other contextual event categories."
+    },
+    "ID_AiCoFe": {
+      "type": "number",
+      "description": "Internal AICoFe participant identifier associated with the event when applicable, such as the presenter or the participant involved in a question or answer event."
+    },
+    "Start": {
+      "type": "string",
+      "description": "Local start time of the annotated event interval, expressed in the Europe/Madrid time zone as recorded during the session."
+    },
+    "Start_UNIX": {
+      "type": "number",
+      "description": "Start timestamp of the annotated event interval expressed as UNIX time in milliseconds. This field is used to synchronize the event with other modalities.",
+      "unit": "milliseconds since UNIX epoch"
+    },
+    "End": {
+      "type": "string",
+      "description": "Local end time of the annotated event interval, expressed in the Europe/Madrid time zone as recorded during the session."
+    },
+    "End_UNIX": {
+      "type": "number",
+      "description": "End timestamp of the annotated event interval expressed as UNIX time in milliseconds. This field is used to synchronize the event with other modalities.",
+      "unit": "milliseconds since UNIX epoch"
+    }
+  },
+  "required": [
+    "Key",
+    "ID_AiCoFe",
+    "Start",
+    "Start_UNIX",
+    "End",
+    "End_UNIX"
+  ]
+}

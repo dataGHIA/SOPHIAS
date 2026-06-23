@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS smartwatch accelerometer schema",
+  "description": "Schema for raw three-axis accelerometer data collected from Fitbit Sense smartwatches through Watch-DMLT during a presentation session. Each record contains a local datetime string, a UNIX timestamp for synchronization, and acceleration measurements along the x, y, and z axes.",
+  "type": "object",
+  "properties": {
+    "Fecha": {
+      "type": "string",
+      "description": "Local date and time at which the accelerometer sample was recorded, stored as a human-readable datetime string."
+    },
+    "Timestamp": {
+      "type": "integer",
+      "description": "UNIX timestamp associated with the accelerometer sample, expressed in milliseconds. This field can be used to align the smartwatch signal with other timestamped SOPHIAS modalities.",
+      "unit": "milliseconds since UNIX epoch"
+    },
+    "Acelerómetro: x": {
+      "type": "number",
+      "description": "Acceleration measured along the smartwatch x-axis.",
+      "unit": "m/s^2"
+    },
+    "y": {
+      "type": "number",
+      "description": "Acceleration measured along the smartwatch y-axis.",
+      "unit": "m/s^2"
+    },
+    "z": {
+      "type": "number",
+      "description": "Acceleration measured along the smartwatch z-axis.",
+      "unit": "m/s^2"
+    }
+  },
+  "required": [
+    "Fecha",
+    "Timestamp",
+    "Acelerómetro: x",
+    "y",
+    "z"
+  ]
+}

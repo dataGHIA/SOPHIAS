@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS eye-tracker recording schema",
+  "description": "Schema for the recording-level metadata file exported from Tobii Pro Glasses 3. The file describes the eye-tracker recording session, including recording identifiers, duration, creation time, timezone, scene-camera video metadata, camera-calibration parameters, gaze-stream metadata, event-stream metadata, and IMU-stream metadata.",
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "type": "string",
+      "description": "Unique identifier assigned by the Tobii Pro Glasses 3 system to the eye-tracker recording session."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name assigned to the eye-tracker recording session in the Tobii recording metadata."
+    },
+    "meta-folder": {
+      "type": "string",
+      "description": "Name or relative path of the metadata folder associated with the eye-tracker recording."
+    },
+    "version": {
+      "type": "integer",
+      "description": "Version number of the Tobii recording metadata format."
+    },
+    "duration": {
+      "type": "number",
+      "description": "Duration of the eye-tracker recording session.",
+      "unit": "milliseconds"
+    },
+    "created": {
+      "type": "string",
+      "description": "Creation timestamp of the eye-tracker recording session as stored in the Tobii metadata."
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Timezone associated with the recording creation time."
+    },
+    "scenecamera": {
+      "type": "object",
+      "description": "Metadata for the scene-camera video recorded by the Tobii Pro Glasses 3.",
+      "properties": {
+        "file": {
+          "type": "string",
+          "description": "Relative path or filename of the scene-camera video associated with the recording."
+        },
+        "snapshots": {
+          "type": "array",
+          "description": "List of scene-camera snapshot images generated for the recording, each with its associated timestamp.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "file": {
+                "type": "string",
+                "description": "Relative path or filename of the snapshot image."
+              },
+              "time": {
+                "type": "number",
+                "description": "Timestamp of the snapshot, expressed relative to the start of the eye-tracker recording.",
+                "unit": "milliseconds from start of eye-tracker recording"
+              }
+            },
+            "required": [
+              "file",
+              "time"
+            ]
+          }
+        },
+        "camera-calibration": {
+          "type": "object",
+          "description": "Scene-camera calibration parameters exported by the Tobii Pro Glasses 3 system.",
+          "properties": {
+            "position": {
+              "type": "array",
+              "description": "Three-dimensional position of the scene camera in the eye-tracker coordinate system.",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "unit": "eye-tracker coordinate system"
+            },
+            "focal-length": {
+              "type": "array",
+              "description": "Focal length parameters of the scene camera along the horizontal and vertical image axes.",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "unit": "pixels"
+            },
+            "rotation": {
+              "type": "array",
+              "description": "Rotation matrix describing the orientation of the scene camera in the eye-tracker coordinate system.",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "skew": {
+              "type": "number",
+              "description": "Camera skew parameter used in the scene-camera calibration model."
+            },
+            "principal-point": {
+              "type": "array",
+              "description": "Principal point of the scene camera in image coordinates.",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "unit": "pixels"
+            },
+            "radial-distortion": {
+              "type": "array",
+              "description": "Radial distortion coefficients of the scene-camera calibration model.",
+              "items": {
+                "type": "number"
+              }
+            },
+            "tangential-distortion": {
+              "type": "array",
+              "description": "Tangential distortion coefficients of the scene-camera calibration model.",
+              "items": {
+                "type": "number"
+              }
+            },
+            "resolution": {
+              "type": "array",
+              "description": "Resolution of the scene-camera video as width and height.",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "unit": "pixels"
+            }
+          },
+          "required": [
+            "position",
+            "focal-length",
+            "rotation",
+            "skew",
+            "principal-point",
+            "radial-distortion",
+            "tangential-distortion",
+            "resolution"
+          ]
+        },
+        "gaze-overlay": {
+          "type": "boolean",
+          "description": "Boolean flag indicating whether a gaze overlay is included in the scene-camera video metadata."
+        }
+      },
+      "required": [
+        "file",
+        "snapshots",
+        "camera-calibration",
+        "gaze-overlay"
+      ]
+    },
+    "eyecameras": {
+      "type": "string",
+      "description": "Metadata entry describing the eye-camera stream or its availability in the Tobii recording export."
+    },
+    "gaze": {
+      "type": "object",
+      "description": "Metadata for the gaze-data stream associated with the recording.",
+      "properties": {
+        "file": {
+          "type": "string",
+          "description": "Relative path or filename of the gaze-data JSON Lines file."
+        },
+        "samples": {
+          "type": "integer",
+          "description": "Total number of gaze samples recorded in the gaze-data stream."
+        },
+        "valid-samples": {
+          "type": "integer",
+          "description": "Number of gaze samples marked as valid in the Tobii recording metadata."
+        }
+      },
+      "required": [
+        "file",
+        "samples",
+        "valid-samples"
+      ]
+    },
+    "events": {
+      "type": "object",
+      "description": "Metadata for the eye-tracker event stream associated with the recording.",
+      "properties": {
+        "file": {
+          "type": "string",
+          "description": "Relative path or filename of the eye-tracker event file."
+        }
+      },
+      "required": [
+        "file"
+      ]
+    },
+    "imu": {
+      "type": "object",
+      "description": "Metadata for the inertial measurement unit stream associated with the recording.",
+      "properties": {
+        "file": {
+          "type": "string",
+          "description": "Relative path or filename of the IMU-data JSON Lines file."
+        }
+      },
+      "required": [
+        "file"
+      ]
+    }
+  },
+  "required": [
+    "uuid",
+    "name",
+    "meta-folder",
+    "version",
+    "duration",
+    "created",
+    "timezone",
+    "scenecamera",
+    "eyecameras",
+    "gaze",
+    "events",
+    "imu"
+  ]
+}

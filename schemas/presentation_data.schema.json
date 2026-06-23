@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS presentation data schema",
+  "description": "Schema for presentation-level metadata exported from AICoFe for a presentation session. Each record describes a participant or role associated with the session, including internal identifiers, presentation topic, demographic fields, smartwatch assignment information, role information, and presentation start/end timestamps in both local and UNIX time formats.",
+  "type": "object",
+  "properties": {
+    "ID": {
+      "type": "integer",
+      "description": "Internal AICoFe participant identifier associated with the record."
+    },
+    "Tema Presentación": {
+      "type": "string",
+      "description": "Presentation topic or title associated with the session."
+    },
+    "Sexo": {
+      "type": "string",
+      "description": "Participant sex or gender category as recorded in the AICoFe metadata."
+    },
+    "Mano Reloj": {
+      "type": "string",
+      "description": "Wrist on which the smartwatch was worn by the participant during the session, when applicable."
+    },
+    "ID Reloj": {
+      "type": "integer",
+      "description": "Internal identifier of the smartwatch assigned to the participant during the session, when applicable."
+    },
+    "Temas Médicos": {
+      "type": "string",
+      "description": "Self-reported medical or health-related notes relevant to the use or interpretation of wearable-sensor data, when provided. This field may be empty or pseudonymized in the released dataset to protect participant privacy."
+    },
+    "Rol": {
+      "type": "string",
+      "description": "Participant role during the presentation session, such as presenter, peer evaluator, observer, or teacher."
+    },
+    "Timestamp_Inicio_Presentacion": {
+      "type": "string",
+      "description": "Local date and time corresponding to the start of the presentation segment, stored as a human-readable timestamp string."
+    },
+    "Timestamp_Inicio_Presentacion_Unix": {
+      "type": "integer",
+      "description": "UNIX timestamp corresponding to the start of the presentation segment, expressed in milliseconds. This field can be used to align the presentation interval with other timestamped SOPHIAS modalities.",
+      "unit": "milliseconds since UNIX epoch"
+    },
+    "Timestamp_Fin_Presentacion": {
+      "type": "string",
+      "description": "Local date and time corresponding to the end of the presentation segment, stored as a human-readable timestamp string."
+    },
+    "Timestamp_Fin_Presentacion_Unix": {
+      "type": "integer",
+      "description": "UNIX timestamp corresponding to the end of the presentation segment, expressed in milliseconds. This field can be used to define the presentation interval and align it with other timestamped SOPHIAS modalities.",
+      "unit": "milliseconds since UNIX epoch"
+    }
+  },
+  "required": [
+    "ID",
+    "Tema Presentación",
+    "Sexo",
+    "Mano Reloj",
+    "ID Reloj",
+    "Temas Médicos",
+    "Rol",
+    "Timestamp_Inicio_Presentacion",
+    "Timestamp_Inicio_Presentacion_Unix",
+    "Timestamp_Fin_Presentacion",
+    "Timestamp_Fin_Presentacion_Unix"
+  ]
+}

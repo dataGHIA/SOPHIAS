@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS face bounding-box schema",
+  "description": "Schema for frame-level facial bounding-box coordinates extracted from a video stream during the SOPHIAS face-processing pipeline. This schema can be used for bounding boxes extracted from the presenter-view webcam video or from the eye-tracker scene video.",
+  "type": "object",
+  "properties": {
+    "Frame": {
+      "type": "integer",
+      "description": "Sequential frame index in the processed video stream."
+    },
+    "X1": {
+      "type": "integer",
+      "description": "Horizontal coordinate of the upper-left corner of the detected face bounding box.",
+      "unit": "pixels"
+    },
+    "Y1": {
+      "type": "integer",
+      "description": "Vertical coordinate of the upper-left corner of the detected face bounding box.",
+      "unit": "pixels"
+    },
+    "X2": {
+      "type": "integer",
+      "description": "Horizontal coordinate of the lower-right corner of the detected face bounding box.",
+      "unit": "pixels"
+    },
+    "Y2": {
+      "type": "integer",
+      "description": "Vertical coordinate of the lower-right corner of the detected face bounding box.",
+      "unit": "pixels"
+    }
+  },
+  "required": [
+    "Frame",
+    "X1",
+    "Y1",
+    "X2",
+    "Y2"
+  ]
+}

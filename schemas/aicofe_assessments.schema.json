@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS AICoFe assessments schema",
+  "description": "Rubric-based assessment records collected through the AICoFe system for a given presenter and rubric item. Each record contains the evaluated student identifier, rubric item and section identifiers, evaluator identifiers, numerical scores, and free-text comments from peer evaluators, the teacher, and the presenter self-assessment.",
+  "type": "object",
+  "properties": {
+    "id_evaluado": {
+      "type": "integer",
+      "description": "Internal AICoFe identifier of the evaluated student, corresponding to the presenter being assessed."
+    },
+    "id_item": {
+      "type": "integer",
+      "description": "Internal identifier of the rubric item being assessed, such as voice and tone, body language, eye contact, slide design, or mastery of the topic."
+    },
+    "id_seccion": {
+      "type": "integer",
+      "description": "Internal identifier of the rubric section to which the item belongs, such as content, design, or presenter performance."
+    },
+    "id_evaluador1": {
+      "type": "integer",
+      "description": "Internal AICoFe identifier of the first peer evaluator assigned to assess the presenter."
+    },
+    "id_evaluador2": {
+      "type": "integer",
+      "description": "Internal AICoFe identifier of the second peer evaluator assigned to assess the presenter."
+    },
+    "nota_evaluador1": {
+      "type": "integer",
+      "description": "Numerical score assigned by the first peer evaluator to the evaluated student for the corresponding rubric item."
+    },
+    "nota_evaluador2": {
+      "type": "integer",
+      "description": "Numerical score assigned by the second peer evaluator to the evaluated student for the corresponding rubric item."
+    },
+    "nota_profesor": {
+      "type": "integer",
+      "description": "Numerical score assigned by the teacher to the evaluated student for the corresponding rubric item."
+    },
+    "nota_evaluado": {
+      "type": "integer",
+      "description": "Numerical self-assessment score assigned by the evaluated student for the corresponding rubric item."
+    },
+    "observaciones_evaluador1": {
+      "type": "string",
+      "description": "Free-text comment written by the first peer evaluator for the corresponding rubric item."
+    },
+    "observaciones_evaluador2": {
+      "type": "string",
+      "description": "Free-text comment written by the second peer evaluator for the corresponding rubric item."
+    },
+    "observaciones_profesor": {
+      "type": "string",
+      "description": "Free-text comment written by the teacher for the corresponding rubric item."
+    },
+    "observaciones_evaluado": {
+      "type": "string",
+      "description": "Free-text self-assessment comment written by the evaluated student for the corresponding rubric item."
+    }
+  },
+  "required": [
+    "id_evaluado",
+    "id_item",
+    "id_seccion",
+    "id_evaluador1",
+    "id_evaluador2",
+    "nota_evaluador1",
+    "nota_evaluador2",
+    "nota_profesor",
+    "nota_evaluado",
+    "observaciones_evaluador1",
+    "observaciones_evaluador2",
+    "observaciones_profesor",
+    "observaciones_evaluado"
+  ]
+}

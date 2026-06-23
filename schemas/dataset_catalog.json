@@ -1,0 +1,134 @@
+{
+  "dataset": "SOPHIAS",
+  "version": "1.0",
+  "description": "Machine-readable catalog of structured schema definitions and media file entries included in the SOPHIAS dataset. The catalog links each expected dataset file pattern to its corresponding JSON Schema or media-file description, supporting file validation, modality-specific interpretation, and reproducible reuse. Some files or modalities may be absent for specific presentation sessions due to participant consent restrictions or technical issues documented in the manuscript.",
+  "schemas": [
+    {
+      "file_pattern": "ids_data.csv",
+      "schema_file": "schemas/ids_data.schema.json",
+      "description": "Session-level mapping file linking internal AICoFe presenter identifiers to presentation folder identifiers, together with participant demographic information such as gender and age."
+    },
+    {
+      "file_pattern": "<presentation_id>/AICoFe/Assessments/<AICoFe_presenterID>.csv",
+      "schema_file": "schemas/aicofe_assessments.schema.json",
+      "description": "Rubric-based assessment records collected through AICoFe for a given presenter. The file includes rubric item and section identifiers, teacher, peer, and self-assessment scores, and the corresponding free-text comments."
+    },
+    {
+      "file_pattern": "<presentation_id>/AICoFe/Logs/events.csv",
+      "schema_file": "schemas/aicofe_events.schema.json",
+      "description": "Timestamped contextual annotations recorded during the presentation session, including event labels, associated AICoFe participant identifiers when applicable, and start/end times in local and UNIX timestamp formats."
+    },
+    {
+      "file_pattern": "<presentation_id>/AICoFe/Logs/presentation_data.csv",
+      "schema_file": "schemas/presentation_data.schema.json",
+      "description": "Presentation-level metadata describing the session, including participant roles, internal AICoFe identifiers, presentation timing information, and sensor or device assignment metadata when applicable."
+    },
+    {
+      "file_pattern": "<presentation_id>/AICoFe/Logs/keyboard_navigation.csv",
+      "schema_file": "schemas/keyboard_navigation.schema.json",
+      "description": "Timestamped keyboard and clicker interaction events recorded during the presentation, including key presses used for slide navigation or other presenter interactions."
+    },
+    {
+      "file_pattern": "<presentation_id>/AICoFe/Logs/mouse_navigation.csv",
+      "schema_file": "schemas/mouse_navigation.schema.json",
+      "description": "Timestamped mouse interaction events recorded during the presentation, including event type, screen coordinates, and local/UNIX timestamps for synchronization with other modalities."
+    },
+    {
+      "file_pattern": "<presentation_id>/Watch-DMLT/<role>/HeartRate.csv",
+      "schema_file": "schemas/smartwatch_heartrate.schema.json",
+      "description": "Raw heart-rate signal collected from Fitbit Sense smartwatches through Watch-DMLT for a specific participant role in the session, such as presenter, peer evaluator, teacher, or observer."
+    },
+    {
+      "file_pattern": "<presentation_id>/Watch-DMLT/<role>/Accelerometer.csv",
+      "schema_file": "schemas/smartwatch_accelerometer.schema.json",
+      "description": "Raw three-axis accelerometer signal collected from the Fitbit Sense smartwatch for a specific participant role, with timestamped motion measurements suitable for alignment with other modalities."
+    },
+    {
+      "file_pattern": "<presentation_id>/Watch-DMLT/<role>/Gyroscope.csv",
+      "schema_file": "schemas/smartwatch_gyroscope.schema.json",
+      "description": "Raw three-axis gyroscope signal collected from the Fitbit Sense smartwatch for a specific participant role, providing timestamped rotational motion measurements."
+    },
+    {
+      "file_pattern": "<presentation_id>/Watch-DMLT/<role>/Orientation.csv",
+      "schema_file": "schemas/smartwatch_orientation.schema.json",
+      "description": "Timestamped smartwatch orientation data for a specific participant role, describing the device orientation during the presentation session."
+    },
+    {
+      "file_pattern": "<presentation_id>/face_processing/PresenterWebcam/box.csv",
+      "schema_file": "schemas/face_box.schema.json",
+      "description": "Frame-level facial bounding-box coordinates extracted from the presenter-view webcam video during the face-processing pipeline."
+    },
+    {
+      "file_pattern": "<presentation_id>/face_processing/PresenterWebcam/head_pose.csv",
+      "schema_file": "schemas/face_head_pose.schema.json",
+      "description": "Frame-level head-pose estimates extracted from the presenter-view webcam video, including yaw, pitch, and roll angles for frames with valid face detections."
+    },
+    {
+      "file_pattern": "<presentation_id>/face_processing/PresenterWebcam/landmarks.csv",
+      "schema_file": "schemas/face_landmarks.schema.json",
+      "description": "Frame-level facial landmark coordinates extracted from the presenter-view webcam video, including the five key facial landmarks returned by the face-detection pipeline."
+    },
+    {
+      "file_pattern": "<presentation_id>/face_processing/Eyetracker/box.csv",
+      "schema_file": "schemas/face_box.schema.json",
+      "description": "Frame-level facial bounding-box coordinates extracted from the first-person eye-tracker scene video when available."
+    },
+    {
+      "file_pattern": "<presentation_id>/face_processing/Eyetracker/head_pose.csv",
+      "schema_file": "schemas/face_head_pose.schema.json",
+      "description": "Frame-level head-pose estimates extracted from the eye-tracker scene video, including yaw, pitch, and roll angles for frames with valid face detections."
+    },
+    {
+      "file_pattern": "<presentation_id>/face_processing/Eyetracker/landmarks.csv",
+      "schema_file": "schemas/face_landmarks.schema.json",
+      "description": "Frame-level facial landmark coordinates extracted from the eye-tracker scene video when face detections are available."
+    },
+    {
+      "file_pattern": "<presentation_id>/eyetracker/Data/gazedata.json",
+      "schema_file": "schemas/eyetracker_gazedata.schema.json",
+      "description": "Gaze data stream recorded with Tobii Pro Glasses 3. The file is stored as JSON Lines, with one gaze sample per line, including gaze vectors, pupil-related measurements, validity information, and timestamps."
+    },
+    {
+      "file_pattern": "<presentation_id>/eyetracker/Data/imudata.json",
+      "schema_file": "schemas/eyetracker_imudata.schema.json",
+      "description": "Inertial measurement unit data recorded with Tobii Pro Glasses 3. The file is stored as JSON Lines, with one IMU sample per line, including accelerometer and gyroscope measurements with timestamps."
+    },
+    {
+      "file_pattern": "<presentation_id>/eyetracker/Data/recording.json",
+      "schema_file": "schemas/eyetracker_recording.schema.json",
+      "description": "Metadata describing the eye-tracker recording session, including recording duration, creation time, timezone, scene-camera information, gaze-stream metadata, event-stream metadata, and IMU-stream metadata."
+    }
+  ],
+  "media_files": [
+    {
+      "file_pattern": "<presentation_id>/edBB/EvaluatorsVideo/WebcamCapture.mp4",
+      "media_type": "video",
+      "format": "mp4",
+      "description": "Audience-facing classroom video captured through the edBB system, showing the evaluator and observer area when consent was provided."
+    },
+    {
+      "file_pattern": "<presentation_id>/edBB/PresenterVideo/WebcamCapture.mp4",
+      "media_type": "video",
+      "format": "mp4",
+      "description": "Presenter-view classroom video captured through the edBB system, showing the student presentation from the frontal webcam perspective when consent was provided."
+    },
+    {
+      "file_pattern": "<presentation_id>/eyetracker/Video/scenevideo.mp4",
+      "media_type": "video",
+      "format": "mp4",
+      "description": "First-person scene video recorded with Tobii Pro Glasses 3 by the external observer during the presentation session."
+    },
+    {
+      "file_pattern": "<presentation_id>/edBB/SoundCapture/Record.wav",
+      "media_type": "audio",
+      "format": "wav",
+      "description": "Webcam-based audio recording captured locally through the edBB sound-capture system and aligned with the edBB audiovisual acquisition infrastructure."
+    },
+    {
+      "file_pattern": "<presentation_id>/edBB/TeamsAudio/Record.wav",
+      "media_type": "audio",
+      "format": "wav",
+      "description": "Ambient audio recording captured through the Microsoft Teams session and synchronized with the edBB webcam-audio reference during preprocessing."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS mouse navigation schema",
+  "description": "Schema for timestamped mouse interaction logs recorded during a presentation session. Each record represents one mouse event, including the event type, cursor position, local datetime string, and timestamp for synchronization with other SOPHIAS modalities.",
+  "type": "object",
+  "properties": {
+    "evento": {
+      "type": "string",
+      "description": "Type of mouse event recorded during the presentation, such as movement, click, release, or other mouse interaction event."
+    },
+    "x": {
+      "type": "string",
+      "description": "Horizontal cursor position associated with the mouse event, as stored in the source file.",
+      "unit": "pixels"
+    },
+    "y": {
+      "type": "string",
+      "description": "Vertical cursor position associated with the mouse event, as stored in the source file.",
+      "unit": "pixels"
+    },
+    "datetime": {
+      "type": "string",
+      "description": "Local date and time at which the mouse event was recorded, stored as a human-readable datetime string."
+    },
+    "timestamp": {
+      "type": "string",
+      "description": "Timestamp associated with the mouse event, as stored in the source file. This value can be used to align the event with other timestamped SOPHIAS modalities.",
+      "unit": "milliseconds since UNIX epoch"
+    }
+  },
+  "required": [
+    "evento",
+    "x",
+    "y",
+    "datetime",
+    "timestamp"
+  ]
+}

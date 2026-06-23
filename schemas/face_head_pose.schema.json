@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS face head-pose schema",
+  "description": "Schema for frame-level head-pose estimates extracted from a video stream during the SOPHIAS face-processing pipeline. This schema can be used for head-pose outputs extracted from the presenter-view webcam video or from the eye-tracker scene video.",
+  "type": "object",
+  "properties": {
+    "Frame": {
+      "type": "integer",
+      "description": "Sequential frame index in the processed video stream."
+    },
+    "Yaw": {
+      "type": "number",
+      "description": "Estimated horizontal head-rotation angle for the detected face in the corresponding frame.",
+      "unit": "degrees"
+    },
+    "Pitch": {
+      "type": "number",
+      "description": "Estimated vertical head-rotation angle for the detected face in the corresponding frame.",
+      "unit": "degrees"
+    },
+    "Roll": {
+      "type": "number",
+      "description": "Estimated in-plane head-rotation angle for the detected face in the corresponding frame.",
+      "unit": "degrees"
+    }
+  },
+  "required": [
+    "Frame",
+    "Yaw",
+    "Pitch",
+    "Roll"
+  ]
+}

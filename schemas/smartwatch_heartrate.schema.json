@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS smartwatch heart-rate schema",
+  "description": "Schema for raw heart-rate data collected from Fitbit Sense smartwatches through Watch-DMLT during a presentation session. Each record contains a local datetime string, a UNIX timestamp for synchronization, and the heart-rate value measured in beats per minute.",
+  "type": "object",
+  "properties": {
+    "Fecha": {
+      "type": "string",
+      "description": "Local date and time at which the heart-rate sample was recorded, stored as a human-readable datetime string."
+    },
+    "Timestamp": {
+      "type": "integer",
+      "description": "UNIX timestamp associated with the heart-rate sample, expressed in milliseconds. This field can be used to align the smartwatch signal with other timestamped SOPHIAS modalities.",
+      "unit": "milliseconds since UNIX epoch"
+    },
+    "Heart Rate": {
+      "type": "integer",
+      "description": "Heart-rate value measured by the Fitbit Sense smartwatch for the corresponding participant role at the recorded timestamp.",
+      "unit": "bpm"
+    }
+  },
+  "required": [
+    "Fecha",
+    "Timestamp",
+    "Heart Rate"
+  ]
+}

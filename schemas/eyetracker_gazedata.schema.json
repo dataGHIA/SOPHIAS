@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS eye-tracker gaze-data schema",
+  "description": "Schema for the gaze-data stream recorded with Tobii Pro Glasses 3. The file is stored as JSON Lines, with one gaze sample per line. Each sample includes a relative eye-tracker timestamp in milliseconds from the start of the recording, two-dimensional and three-dimensional gaze estimates, and eye-specific measurements for the left and right eyes when available.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Type of eye-tracking record. For gaze samples, this field identifies the entry as a gaze-data record."
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "Eye-tracker timestamp associated with the gaze sample, expressed in milliseconds from the start of the eye-tracker recording. This relative timestamp can be used to align gaze samples within the eye-tracking stream and, together with recording metadata or synchronization procedures, with other SOPHIAS modalities.",
+      "unit": "milliseconds from start of eye-tracker recording"
+    },
+    "data": {
+      "type": "object",
+      "description": "Container for the gaze measurements and eye-specific information recorded for this sample.",
+      "properties": {
+        "gaze2d": {
+          "type": "array",
+          "description": "Two-dimensional gaze position in the scene-camera reference frame. The array contains the horizontal and vertical gaze coordinates for the sample.",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "unit": "normalized scene-video coordinates"
+        },
+        "gaze3d": {
+          "type": "array",
+          "description": "Three-dimensional gaze point estimated in the eye-tracker coordinate system. The array contains the x, y, and z coordinates for the sample when available.",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "unit": "eye-tracker coordinate system"
+        },
+        "eyeleft": {
+          "type": "object",
+          "description": "Eye-specific gaze and pupil measurements for the left eye.",
+          "properties": {
+            "gazeorigin": {
+              "type": "array",
+              "description": "Three-dimensional origin of the left-eye gaze ray in the eye-tracker coordinate system.",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "unit": "eye-tracker coordinate system"
+            },
+            "gazedirection": {
+              "type": "array",
+              "description": "Three-dimensional direction vector of the left-eye gaze ray.",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "unit": "unit vector"
+            },
+            "pupildiameter": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "Estimated pupil diameter for the left eye. The value may be null when the pupil measurement is not available or not valid for the sample.",
+              "unit": "mm"
+            }
+          },
+          "required": [
+            "gazeorigin",
+            "gazedirection",
+            "pupildiameter"
+          ]
+        },
+        "eyeright": {
+          "type": "object",
+          "description": "Eye-specific gaze and pupil measurements for the right eye.",
+          "properties": {
+            "gazeorigin": {
+              "type": "array",
+              "description": "Three-dimensional origin of the right-eye gaze ray in the eye-tracker coordinate system.",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "unit": "eye-tracker coordinate system"
+            },
+            "gazedirection": {
+              "type": "array",
+              "description": "Three-dimensional direction vector of the right-eye gaze ray.",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "unit": "unit vector"
+            },
+            "pupildiameter": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "Estimated pupil diameter for the right eye. The value may be null when the pupil measurement is not available or not valid for the sample.",
+              "unit": "mm"
+            }
+          },
+          "required": [
+            "gazeorigin",
+            "gazedirection",
+            "pupildiameter"
+          ]
+        }
+      },
+      "required": [
+        "gaze2d",
+        "gaze3d",
+        "eyeleft",
+        "eyeright"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "timestamp",
+    "data"
+  ]
+}

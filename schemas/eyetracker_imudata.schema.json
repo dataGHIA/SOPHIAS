@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS eye-tracker IMU-data schema",
+  "description": "Schema for the inertial measurement unit data stream recorded with Tobii Pro Glasses 3. The file is stored as JSON Lines, with one IMU sample per line. Each sample includes a relative eye-tracker timestamp in milliseconds from the start of the recording and three-axis accelerometer and gyroscope measurements.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Type of eye-tracking record. For IMU samples, this field identifies the entry as an inertial measurement record."
+    },
+    "timestamp": {
+      "type": "number",
+      "description": "Eye-tracker timestamp associated with the IMU sample, expressed in milliseconds from the start of the eye-tracker recording. This relative timestamp can be used to align IMU samples within the eye-tracking stream and, together with recording metadata or synchronization procedures, with other SOPHIAS modalities.",
+      "unit": "milliseconds from start of eye-tracker recording"
+    },
+    "data": {
+      "type": "object",
+      "description": "Container for the inertial measurements recorded for this sample.",
+      "properties": {
+        "accelerometer": {
+          "type": "array",
+          "description": "Three-axis linear acceleration measured by the Tobii Pro Glasses 3 inertial sensor. The array contains the acceleration values along the x, y, and z axes.",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "unit": "m/s^2"
+        },
+        "gyroscope": {
+          "type": "array",
+          "description": "Three-axis angular velocity measured by the Tobii Pro Glasses 3 inertial sensor. The array contains the gyroscope values around the x, y, and z axes.",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "unit": "deg/s"
+        }
+      },
+      "required": [
+        "accelerometer",
+        "gyroscope"
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "timestamp",
+    "data"
+  ]
+}
+

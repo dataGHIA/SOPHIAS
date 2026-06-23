@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOPHIAS face landmarks schema",
+  "description": "Schema for frame-level facial landmark coordinates extracted from a video stream during the SOPHIAS face-processing pipeline. This schema can be used for landmarks extracted from the presenter-view webcam video or from the eye-tracker scene video. Each record represents one facial landmark point detected in one video frame.",
+  "type": "object",
+  "properties": {
+    "Frame": {
+      "type": "integer",
+      "description": "Sequential frame index in the processed video stream."
+    },
+    "Point_ID": {
+      "type": "integer",
+      "description": "Identifier of the facial landmark point within the detected face. The same point identifier is used consistently across frames for the landmark set returned by the face-detection pipeline."
+    },
+    "X": {
+      "type": "number",
+      "description": "Horizontal coordinate of the facial landmark point in the video frame.",
+      "unit": "pixels"
+    },
+    "Y": {
+      "type": "number",
+      "description": "Vertical coordinate of the facial landmark point in the video frame.",
+      "unit": "pixels"
+    }
+  },
+  "required": [
+    "Frame",
+    "Point_ID",
+    "X",
+    "Y"
+  ]
+}
