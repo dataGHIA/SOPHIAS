@@ -1,0 +1,8 @@
+# Requirements for example_synchronization_SOPHIAS.ipynb
+# Recommended: Python >=3.10
+
+pandas>=2.0
+matplotlib>=3.7
+plotly>=5.18
+nbformat>=5.9
+ipykernel>=6.0
