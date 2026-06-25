@@ -73,7 +73,8 @@ The dataset consists of recordings from **65 students** enrolled in face-to-face
 Some data from the SOPHIAS dataset were preprocessed and included in the dataset along with the raw files:
 
 - Smartwatch data were filtered to eliminate minor fluctuations and smooth the signals using Python scripts. [[Example of code for Heart Rate](https://github.com/dataGHIA/SOPHIAS/blob/main/Code/Heart_Rate_filtered_Example.py)] [[Example of code for Accelerometer](https://github.com/dataGHIA/SOPHIAS/blob/main/Code/Acc_filtered_Example.py)]
- 
+
+- Example of data synchronization for event labels and heart rate [[Example](https://github.com/dataGHIA/SOPHIAS/blob/main/Code/example_synchronization_SOPHIAS.ipynb)]
 
 # Download Data
 1) Download license agreement, send by email one signed and scanned copy to ghia.uam@gmail.com according to the instructions given.
