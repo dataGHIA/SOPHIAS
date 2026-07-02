@@ -68,6 +68,64 @@ The dataset consists of recordings from **65 students** enrolled in face-to-face
   - **Presentation format:** Group presentations (groups of 4–5 students)  
   - **Duration:** 15 minutes, plus 5 minutes for questions
 
+# SOPHIAS dataset directory tree
+
+```text
+SOPHIAS/
+├── ids_data.csv
+├── <presentation_id>/
+│   ├── edBB/
+│   │   ├── PresenterVideo/
+│   │   │   ├── webcam.mp4
+│   │   │   └── WebcamCapture.csv
+│   │   ├── EvaluatorsVideo/
+│   │   │   ├── webcam.mp4
+│   │   │   └── WebcamCapture.csv
+│   │   ├── SoundCapture/
+│   │   │   └── Record.wav
+│   │   └── TeamsAudio/
+│   │       └── Record.wav
+│   ├── Watch-DMLT/
+│   │   ├── <role>/
+│   │   │   ├── HeartRate.csv
+│   │   │   ├── Accelerometer.csv
+│   │   │   ├── Gyroscope.csv
+│   │   │   └── Orientation.csv
+│   │   └── <role>_filter/
+│   │       ├── HeartRate.csv
+│   │       ├── Accelerometer.csv
+│   │       └── Gyroscope.csv
+│   ├── AICoFe/
+│   │   ├── Assessments/
+│   │   │   └── AICoFe_presenterID.csv
+│   │   ├── Slides/
+│   │   │   └── slides.pdf
+│   │   └── Logs/
+│   │       ├── events.csv
+│   │       ├── presentation_data.csv
+│   │       ├── keys_<role>.csv
+│   │       ├── mouse_navigation.csv
+│   │       └── keyboard_navigation.csv
+│   ├── eyetracker/
+│   │   ├── Video/
+│   │   │   └── scenevideo.mp4
+│   │   └── Data/
+│   │       ├── gazedata.json
+│   │       ├── imudata.json
+│   │       └── recording.json
+│   └── face_processing/
+│       ├── PresenterWebcam/
+│       │   ├── box.csv
+│       │   ├── head_pose.csv
+│       │   └── landmarks.csv
+│       └── Eyetracker/
+│           ├── box.csv
+│           ├── head_pose.csv
+│           └── landmarks.csv
+└── ...
+```
+
+*Figure: Directory tree of the SOPHIAS dataset. The structure is shown for a generic presentation folder.*
 
 # Code
 Some data from the SOPHIAS dataset were preprocessed and included in the dataset along with the raw files:
