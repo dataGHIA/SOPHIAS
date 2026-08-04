@@ -20,11 +20,9 @@ sample_intervals = np.diff(Timestamp)
 Fs = 1 / np.mean(sample_intervals)
 print("Calculated sampling frequency:", Fs, "Hz")
 
-# 5️⃣ Opcional: sobrescribir Fs si quieres simular un muestreo más rápido
-Fs = 100  # Hz
 
-# 6️⃣ Crear filtro Butterworth 4º orden, cutoff 15 Hz
-Fc = 15  # Hz
+# 6️⃣ Crear filtro Butterworth 4º orden, cutoff 0.2 Hz
+Fc = 0.2  # Hz
 b, a = butter(4, Fc / (Fs / 2), btype='low')
 
 # 7️⃣ Filtrar las señales con filtfilt
